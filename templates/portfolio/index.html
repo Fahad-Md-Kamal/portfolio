@@ -1,0 +1,322 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="section about-me" data-section="section1">
+  <div class="container">
+    <div class="section-heading">
+      <h2>About Me</h2>
+      <div class="line-dec"></div>
+      <span>
+        {{ aboutme.detail }}
+      </span>
+      <!-- <span>Passionated software engineer with farm focus on System Architecture Designee and Self learning
+            enthusiast. Enjoys Team
+            Collaboration with a moto of “Together we Success” while following Agile Development process for the best
+            outcome.</span> -->
+    </div>
+    <div class="left-image-post">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="right-text">
+            <h4>Education</h4>
+            <dl>
+              {% for edu in eduations %}
+              <dt>{{edu.certificate}}</dt>
+              <dd>- {{edu.organization}}</dd>
+              {% endfor %}
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right-image-post">
+      <div class="row">
+        <h4 class="col-12">My Skill(s)</h4>
+        <div class="col-md-4">
+          <div class="left-text">
+            <p>
+            <dl>
+              <dt>HARD Skill(s)</dt>
+              {% for skill in skills %}
+              {% if skill.category == 1 %}
+              <dd>- {{ skill.name }}</dd>
+              {% endif %}
+              {% endfor %}
+            </dl>
+
+            </p>
+            <!-- <div class="white-button">
+                  <a href="#">Read More</a>
+                </div> -->
+          </div>
+        </div>
+        <div class="col-md-4">
+
+
+          <div class="left-text">
+            <p>
+
+              <dl>
+                <dt>SOFT Skill(s)</dt>
+                {% for skill in skills %}
+                {% if skill.category == 2 %}
+                <dd>- {{ skill.name }}</dd>
+                {% endif %}
+                {% endfor %}
+              </dl>
+
+            <!-- <dl>
+              <dt>Frameworks</dt>
+              <dd>- Django</dd>
+              <dd>- Flutter</dd>
+              <dd>- Winform</dd>
+              <dd>- Docker</dd>
+            </dl> -->
+            </p>
+            <!-- <div class="white-button">
+                  <a href="#">Read More</a>
+                </div> -->
+          </div>
+
+        </div>
+        <div class="col-md-4">
+
+          <div class="left-text">
+            <p>
+              <dl>
+                <dt> Framework(s) </dt>
+                {% for fw in frameworks %}
+                <dd>- {{ fw.name }}</dd>
+                {% endfor %}
+              </dl>
+
+            <!-- <dl>
+              <dt>Libraries</dt>
+              <dd>- Pandas</dd>
+              <dd>- Numpy</dd>
+              <dd>- SciKit Learn</dd>
+            </dl> -->
+            </p>
+            <!-- <div class="white-button">
+                  <a href="#">Read More</a>
+                </div> -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section my-services" data-section="section2">
+  <div class="container">
+    <div class="section-heading">
+      <h2>What I’m good at?</h2>
+      <div class="line-dec"></div>
+      <span>Tools and Technologies That I've Worked With and Expert in</span>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="service-item">
+          <a class="technology" href="http://google.com" target="_blank">
+            <img src="https://img.icons8.com/ios/50/000000/python--v1.png" />
+            <h4>Python</h4>
+          </a>
+          <p>Python's most popular framework for developing web application is Django. Django Django Django</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="service-item">
+          <a class="technology" href="http://google.com" target="_blank">
+            <img src="https://img.icons8.com/ios/50/000000/flutter.png" />
+            <h4>Dart</h4>
+          </a>
+          <p id="sd">Python's most popular framework for developing web application is Django. Django Django Django</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="service-item">
+          <a class="technology" href="http://google.com" target="_blank">
+
+            <img src="https://img.icons8.com/ios/50/000000/c-sharp-logo.png" />
+            <h4>C#</h4>
+          </a>
+          <p id="sd">Python's most popular framework for developing web application is Django. Django Django Django</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="service-item">
+          <a class="technology" href="http://google.com" target="_blank">
+            <img src="https://img.icons8.com/ios/50/000000/database.png" />
+            <h4>SQL</h4>
+          </a>
+          <p id="sd">Python's most popular framework for developing web application is Django. Django Django Django</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section my-work" data-section="section3">
+  <div class="container">
+    <div class="section-heading">
+      <h2>My Work</h2>
+      <div class="line-dec"></div>
+      <span>The following projects which I've developed up until now.</span>
+    </div>
+    <div class="row">
+      <div class="isotope-wrapper">
+        <form class="isotope-toolbar">
+          <label><input type="radio" data-type="*" checked="" name="isotope-filter" />
+            <span>all</span></label>
+          <label><input type="radio" data-type="people" name="isotope-filter" />
+            <span>people</span></label>
+          <label><input type="radio" data-type="nature" name="isotope-filter" />
+            <span>nature</span></label>
+          <label><input type="radio" data-type="animals" name="isotope-filter" />
+            <span>animals</span></label>
+        </form>
+        <div class="isotope-box">
+          <div class="isotope-item" data-type="nature">
+            <figure class="snip1321">
+              <img src="{% static 'assets/images/portfolio-01.jpg' %}" alt="sq-sample26" />
+              <figcaption>
+                <a href="{% static 'assets/images/portfolio-01.jpg' %}" data-lightbox="image-1" data-title="Caption"><i
+                    class="fa fa-search"></i></a>
+                <h4>First Title</h4>
+                <span>free to use our template</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="isotope-item" data-type="people">
+            <figure class="snip1321">
+              <img src="{% static 'assets/images/portfolio-02.jpg' %}" alt="sq-sample26" />
+              <figcaption>
+                <a href="{% static 'assets/images/portfolio-02.jpg' %}" data-lightbox="image-1" data-title="Caption"><i
+                    class="fa fa-search"></i></a>
+                <h4>Second Title</h4>
+                <span>please tell your friends</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="isotope-item" data-type="animals">
+            <figure class="snip1321">
+              <img src="{% static 'assets/images/portfolio-03.jpg' %}" alt="sq-sample26" />
+              <figcaption>
+                <a href="{% static 'assets/images/portfolio-03.jpg' %}" data-lightbox="image-1" data-title="Caption"><i
+                    class="fa fa-search"></i></a>
+                <h4>Item Third</h4>
+                <span>customize anything</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="isotope-item" data-type="people">
+            <figure class="snip1321">
+              <img src="{% static 'assets/images/portfolio-04.jpg' %}" alt="sq-sample26" />
+              <figcaption>
+                <a href="{% static 'assets/images/portfolio-04.jpg' %}" data-lightbox="image-1" data-title="Caption"><i
+                    class="fa fa-search"></i></a>
+                <h4>Item Fourth</h4>
+                <span>Re-distribution not allowed</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="isotope-item" data-type="nature">
+            <figure class="snip1321">
+              <img src="{% static 'assets/images/portfolio-05.jpg' %}" alt="sq-sample26" />
+              <figcaption>
+                <a href="{% static 'assets/images/portfolio-05.jpg' %}" data-lightbox="image-1" data-title="Caption"><i
+                    class="fa fa-search"></i></a>
+                <h4>Fifth Awesome</h4>
+                <span>Ut sollicitudin risus</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="isotope-item" data-type="animals">
+            <figure class="snip1321">
+              <img src="{% static 'assets/images/portfolio-06.jpg' %}" alt="sq-sample26" />
+              <figcaption>
+                <a href="{% static 'assets/images/portfolio-06.jpg' %}" data-lightbox="image-1" data-title="Caption"><i
+                    class="fa fa-search"></i></a>
+                <h4>Awesome Sixth</h4>
+                <span>Donec eget massa ante</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact-me" data-section="section4">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Contact Me</h2>
+      <div class="line-dec"></div>
+      <span>Please fill-out your queries through the form and I'll contact you ASAP.</span>
+    </div>
+    <div class="row">
+      <div class="right-content">
+        <div class="container">
+          <form id="contact" action="" method="post">
+            <div class="row">
+              <div class="col-md-6">
+                <fieldset>
+                  <input name="name" type="text" class="form-control" id="name" placeholder="Your name..."
+                    required="" />
+                </fieldset>
+              </div>
+              <div class="col-md-6">
+                <fieldset>
+                  <input name="email" type="text" class="form-control" id="email" placeholder="Your email..."
+                    required="" />
+                </fieldset>
+              </div>
+              <div class="col-md-12">
+                <fieldset>
+                  <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject..."
+                    required="" />
+                </fieldset>
+              </div>
+              <div class="col-md-12">
+                <fieldset>
+                  <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..."
+                    required=""></textarea>
+                </fieldset>
+              </div>
+              <div class="col-md-12">
+                <fieldset>
+                  <button type="submit" id="form-submit" class="button">
+                    Send Message
+                  </button>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock content %}
+
+
+
+<!-- <dt>Programming Languages</dt>
+                  <dd>- Python</dd>
+                  <dd>- Dart</dd>
+                  <dd>- C#</dd>
+                  <dd>- Html 5, CSS 3</dd>
+                  <dd>- Sql</dd>
+                  <dd>- JavaScript</dd>
+                  <dd>- PHP</dd> -->
