@@ -1,0 +1,2 @@
+DUMP Database: python manage.py dumpdata admin > admin.json
+LOAD Database: python manage.py loaddata > admin.json
