@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-cw&*j26ckm+g&p1-oazw1&$54spuu3j4x%z!_-j*($tui^4447
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fahadresume.pythonanywhere.com']
 
 
 # Application definition
