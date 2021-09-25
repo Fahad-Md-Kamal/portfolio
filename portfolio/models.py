@@ -19,7 +19,8 @@ class AboutMe(models.Model):
 
 class Technology(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    icon = models.CharField(max_length=50, help_text='Get Embaded HTML url from www.icons8.com')
+    icon = models.CharField(
+        max_length=50, help_text='Get Embaded HTML url from www.icons8.com')
     title = models.CharField(max_length=20)
     serial = models.IntegerField(default=0)
     description = models.TextField(max_length=100)
@@ -101,6 +102,8 @@ class Platform(models.Model):
 
 class Project(models.Model):
     project_name = models.CharField(max_length=50)
+    serial_num = models.IntegerField(
+        default=0, help_text="This is order the projects heirarcy.")
     project_url = models.CharField(max_length=200, blank=True, null=True)
     project_detail = models.TextField(max_length=500)
     image = models.ImageField(upload_to='projects/')
@@ -110,10 +113,12 @@ class Project(models.Model):
         Platform, on_delete=models.CASCADE, blank=True, null=True)
     update_on = models.DateTimeField(auto_now=True)
     timestamp = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField(max_length=255)
 
     class Meta:
         verbose_name = 'Project'
         verbose_name_plural = 'Projects'
+        ordering = ['serial_num']
 
     def __str__(self):
         return self.project_name
