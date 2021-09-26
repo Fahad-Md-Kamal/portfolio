@@ -1,6 +1,39 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class Profile(models.Model):
+    name = models.CharField(max_length=50)
+    designation = models.CharField(max_length=50)
+    contact= models.CharField(max_length=20)
+    profile_image = models.ImageField(upload_to='profile/')
+    gmail = models.EmailField(null=True, blank=True)
+    slug = models.SlugField(max_length=255)
+    update_on = models.DateTimeField(auto_now=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+class  OtherURLS(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='url_profile')
+    name = models.CharField(max_length=30)
+    icon = models.CharField(max_length=20)
+    email = models.EmailField(null=True, blank=True)
+    url = models.URLField(null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'OtherURLS'
+        verbose_name_plural = 'OtherURLS'
+
+    def save(self, *args, **kwargs):
+        if self.email != None and self.url != None:
+            raise ValueError('Email and URL both cannot be accepted at a time.')
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
+
+
 
 class AboutMe(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -105,7 +138,7 @@ class Project(models.Model):
     serial_num = models.IntegerField(
         default=0, help_text="This is order the projects heirarcy.")
     project_url = models.CharField(max_length=200, blank=True, null=True)
-    project_detail = models.TextField(max_length=500)
+    project_detail = models.TextField(max_length=1000)
     image = models.ImageField(upload_to='projects/')
     technology = models.ForeignKey(
         Technology, on_delete=models.CASCADE, blank=True, null=True)

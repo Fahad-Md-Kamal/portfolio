@@ -2,153 +2,156 @@
 
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Portfolio | {{profile.name}}</title>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <title>Portfolio | Fahad Md Kamal</title>
+    <link
+      rel="shortcut icon"
+      href="https://img.icons8.com/cotton/24/000000/artificial-intelligence.png"
+      type="image/x-icon"
+    />
+    <!-- Bootstrap core CSS -->
+    <link
+      href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
 
-  <link rel="shortcut icon" href="https://img.icons8.com/cotton/24/000000/artificial-intelligence.png" type="image/x-icon">
-  <!-- Bootstrap core CSS -->
-  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/css/templatemo-style.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/lightbox.css' %}" />
+  </head>
 
-  <!-- Additional CSS Files -->
-  <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}" />
-  <link rel="stylesheet" href="{% static 'assets/css/templatemo-style.css' %}" />
-  <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}" />
-  <link rel="stylesheet" href="{% static 'assets/css/lightbox.css' %}" />
-</head>
+  <body>
+    <div id="page-wraper">
+      <!-- Sidebar Menu -->
+      <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu">
+          <i class="fa fa-times" id="menu-close"></i>
+          <div class="container">
+            <div class="image">
+              <a href="#"
+                ><img src="{{ profile.profile_image.url }}" alt=""
+              /></a>
+            </div>
+            <div class="author-content">
+              <h4>{{profile.name}}</h4>
+              <span>{{profile.designation}}</span>
+              <br />
+              <span>{{profile.contact}}</span>
+            </div>
+            <nav class="main-nav" role="navigation">
+              <ul class="main-menu">
+                <li><a href="#section1">About Me</a></li>
+                <li><a href="#section2">What I’m good at</a></li>
+                <li><a href="#section3">My Work</a></li>
+                <li><a href="#section4">Contact Me</a></li>
+              </ul>
+            </nav>
+            <div class="social-network">
+              <ul class="soial-icons">
+                {% for link in links %}
+                <li>
+                  {% if link.url %}
+                  <a href="{{link.url}}" target="_blank">
+                    {% else %}
+                    <a href="mailto:{{link.email}}" target="_blank">
 
-<body>
-  <div id="page-wraper">
-    <!-- Sidebar Menu -->
-    <div class="responsive-nav">
-      <i class="fa fa-bars" id="menu-toggle"></i>
-      <div id="menu" class="menu">
-        <i class="fa fa-times" id="menu-close"></i>
-        <div class="container">
-          <div class="image">
-            <a href="#"><img
-                src="https://camo.githubusercontent.com/c2d3377ee04ff4ada5da5e9a01f6e88729670d450af55d9249c6f1c50cd75323/68747470733a2f2f6d656469612d657870312e6c6963646e2e636f6d2f646d732f696d6167652f433444303341514639326c306e4f4c2d4357672f70726f66696c652d646973706c617970686f746f2d736872696e6b5f3830305f3830302f302f313632353438313235393632353f653d3136333437373434303026763d6265746126743d45566e4a564e39716c55454e48682d6d4a734b6e6374385131447937786d474252696e643141344b7a4234"
-                alt="" /></a>
-          </div>
-          <div class="author-content">
-            <h4>Fahad Md Kamal</h4>
-            <span>Sofware Engineer</span>
-            <br>
-            <span>(+880) 1675759801</span>
-          </div>
-          <nav class="main-nav" role="navigation">
-            <ul class="main-menu">
-              <li><a href="#section1">About Me</a></li>
-              <li><a href="#section2">What I’m good at</a></li>
-              <li><a href="#section3">My Work</a></li>
-              <li><a href="#section4">Contact Me</a></li>
-            </ul>
-          </nav>
-          <div class="social-network">
-            <ul class="soial-icons">
-              <li>
-                <a href="https://www.linkedin.com/in/fahad-md-kamal-1b8866120/" target="_blank"><i
-                    class="fa fa-linkedin"></i></a>
-              </li>
-              <li>
-                <a href="https://github.com/Fahad-Md-Kamal/" target="_blank"><i class="fa fa-github"></i></a>
-              </li>
-              <li>
-                <a href="https://stackoverflow.com/users/9183839/fahad-md-kamal" target="_blank"><i
-                    class="fa fa-stack-overflow"></i></a>
-              </li>
-              <li>
-                <a href="mailto:faahad.hossain@gmail.com" target="_blank"><i class="fa fa-google"></i></a>
-              </li>
-              <li>
-                <a href="https://www.hackerrank.com/fahad_md_kamal" target="_blank"><i
-                    class="fab fa-hackerrank"></i></i></a>
-              </li>
-            </ul>
-          </div>
-          <div class="copyright-text">
-            <p>Copyright <span id="year"></span> @ Fahad Md Kamal</p>
+                      {% endif %}
+                      <i class="{{link.icon}}"></i>
+                    </a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="copyright-text">
+              <p>Copyright <span id="year"></span> @ {{profile.name}}</p>
+            </div>
           </div>
         </div>
       </div>
+      {% block content %} {% endblock content %}
     </div>
-    {% block content %}
-    {% endblock content %}
- 
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
-    
-  </div>
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+    <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'assets/js/lightbox.js' %}"></script>
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+    <script>
+      //according to loftblog tut
+      $(".main-menu li:first").addClass("active");
 
-  <script src="{% static 'assets/js/isotope.min.js' %}"></script>
-  <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
-  <script src="{% static 'assets/js/lightbox.js' %}"></script>
-  <script src="{% static 'assets/js/custom.js' %}"></script>
-  <script>
-    //according to loftblog tut
-    $(".main-menu li:first").addClass("active");
+      var showSection = function showSection(section, isAnimate) {
+        var direction = section.replace(/#/, ""),
+          reqSection = $(".section").filter(
+            '[data-section="' + direction + '"]'
+          ),
+          reqSectionPos = reqSection.offset().top - 0;
 
-    var showSection = function showSection(section, isAnimate) {
-      var direction = section.replace(/#/, ""),
-        reqSection = $(".section").filter(
-          '[data-section="' + direction + '"]'
-        ),
-        reqSectionPos = reqSection.offset().top - 0;
-
-      if (isAnimate) {
-        $("body, html").animate(
-          {
-            scrollTop: reqSectionPos
-          },
-          800
-        );
-      } else {
-        $("body, html").scrollTop(reqSectionPos);
-      }
-    };
-
-    var checkSection = function checkSection() {
-      $(".section").each(function () {
-        var $this = $(this),
-          topEdge = $this.offset().top - 80,
-          bottomEdge = topEdge + $this.height(),
-          wScroll = $(window).scrollTop();
-        if (topEdge < wScroll && bottomEdge > wScroll) {
-          var currentId = $this.data("section"),
-            reqLink = $("a").filter("[href*=\\#" + currentId + "]");
-          reqLink
-            .closest("li")
-            .addClass("active")
-            .siblings()
-            .removeClass("active");
+        if (isAnimate) {
+          $("body, html").animate(
+            {
+              scrollTop: reqSectionPos,
+            },
+            800
+          );
+        } else {
+          $("body, html").scrollTop(reqSectionPos);
         }
+      };
+
+      var checkSection = function checkSection() {
+        $(".section").each(function () {
+          var $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+          if (topEdge < wScroll && bottomEdge > wScroll) {
+            var currentId = $this.data("section"),
+              reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+            reqLink
+              .closest("li")
+              .addClass("active")
+              .siblings()
+              .removeClass("active");
+          }
+        });
+      };
+
+      $(".main-menu").on("click", "a", function (e) {
+        e.preventDefault();
+        showSection($(this).attr("href"), true);
       });
-    };
 
-    $(".main-menu").on("click", "a", function (e) {
-      e.preventDefault();
-      showSection($(this).attr("href"), true);
-    });
+      $(window).scroll(function () {
+        checkSection();
+      });
 
-    $(window).scroll(function () {
-      checkSection();
-    });
-
-
-    let date = new Date().getFullYear();
-    document.getElementById('year').innerHTML = date;
-  </script>
-
-</body>
-
+      let date = new Date().getFullYear();
+      document.getElementById("year").innerHTML = date;
+    </script>
+  </body>
 </html>

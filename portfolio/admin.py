@@ -25,6 +25,13 @@ class ProjectAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('project_name',)}
 
 
+@admin.register(models.Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ('name', 'designation', 'contact')
+    list_editable = ('contact', 'designation')
+    prepopulated_fields = {'slug': ('name',)}
+
+admin.site.register(models.OtherURLS)
 admin.site.register(models.AboutMe)
 admin.site.register(models.Education)
 admin.site.register(models.Platform)
