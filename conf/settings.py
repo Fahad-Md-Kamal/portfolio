@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-cw&*j26ckm+g&p1-oazw1&$54spuu3j4x%z!_-j*($tui^4447
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['fahadresume.pythonanywhere.com', '*']
+ALLOWED_HOSTS = ['fahadresume.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
@@ -107,10 +107,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = 'static'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static'
-]
+STATIC_ROOT = 'static'
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static'
+# ]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
