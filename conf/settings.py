@@ -4,7 +4,7 @@ import json
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-with open('../creds.json') as config_file:
+with open('./creds.json') as config_file:
     cred = json.load(config_file)
 
 # Quick-start development settings - unsuitable for production
