@@ -4,17 +4,14 @@ import json
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-with open('../creds.json') as config_file:
-    cred = json.load(config_file)
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = cred['SECREAT_KEY'] 
+SECRET_KEY = '' 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = cred['DEBUG'] 
+DEBUG = False
 
 ALLOWED_HOSTS = ['fahadresume.pythonanywhere.com', '127.0.0.1']
 
