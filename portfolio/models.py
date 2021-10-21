@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 class Profile(models.Model):
     name = models.CharField(max_length=50)
     designation = models.CharField(max_length=50)
-    contact= models.CharField(max_length=20)
     profile_image = models.ImageField(upload_to='profile/')
     gmail = models.EmailField(null=True, blank=True)
     slug = models.SlugField(max_length=255)
@@ -13,6 +12,33 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Contacts(models.Model):
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='contacts_set')
+    contact= models.CharField(max_length=20)
+    serial = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f'{self.user.name}\'s {self.contact}'
+    
+    class Meta:
+        verbose_name = 'Contact'
+        verbose_name_plural = 'Contacts'
+        ordering = ['serial']
+
+class Email(models.Model):
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='emails_set')
+    email= models.CharField(max_length=255)
+    serial = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f'{self.user.name}\'s {self.email}'
+    
+    class Meta:
+        verbose_name = 'Email'
+        verbose_name_plural = 'Emails'
+        ordering = ['serial']
 
 class  OtherURLS(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='url_profile')

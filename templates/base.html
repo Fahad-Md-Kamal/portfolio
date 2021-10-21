@@ -48,16 +48,22 @@
         <div id="menu" class="menu">
           <i class="fa fa-times" id="menu-close"></i>
           <div class="container">
-            <div class="image">
-              <a href="#"
-                ><img src="{{ profile.profile_image.url }}" alt=""
-              /></a>
+            <div class="image mt-5">
+              <a href="#">
+                <img src="{{ profile.profile_image.url }}" alt="" />
+              </a>
             </div>
             <div class="author-content">
               <h4>{{profile.name}}</h4>
               <span>{{profile.designation}}</span>
-              <br />
-              <span>{{profile.contact}}</span>
+              <br>
+              {% for contact in contacts %}
+              &ensp; <span class="contact">{{contact.contact}}</span> &ensp;
+              {% endfor %}
+              <hr>
+              {% for email in emails %}
+              &ensp; <span class="contact">{{email.email}}</span> &ensp;
+              {% endfor %}
             </div>
             <nav class="main-nav" role="navigation">
               <ul class="main-menu">
@@ -91,6 +97,9 @@
       </div>
       {% block content %} {% endblock content %}
     </div>
+    <a href="https://drive.google.com/drive/folders/1TbAv3NGvIIXXykKjrcXaMK8sr1_zN7PK?usp=sharing" class="float" target="_blank">
+      <i class="fa fa-download my-float"></i>
+      </a>
     <!-- Scripts -->
     <!-- Bootstrap core JavaScript -->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>

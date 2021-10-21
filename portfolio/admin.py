@@ -27,9 +27,19 @@ class ProjectAdmin(admin.ModelAdmin):
 
 @admin.register(models.Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('name', 'designation', 'contact')
-    list_editable = ('contact', 'designation')
+    list_display = ('name', 'designation', )
+    list_editable = ('designation',)
     prepopulated_fields = {'slug': ('name',)}
+
+@admin.register(models.Contacts)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('contact', 'serial')
+    list_editable = ('serial',)
+
+@admin.register(models.Email)
+class EmailAdmin(admin.ModelAdmin):
+    list_display = ('email', 'serial')
+    list_editable = ('serial',)
 
 admin.site.register(models.OtherURLS)
 admin.site.register(models.AboutMe)
